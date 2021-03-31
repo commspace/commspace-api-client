@@ -14,40 +14,39 @@ package io.swagger.client.auth;
 
 import io.swagger.client.Pair;
 
-import com.squareup.okhttp.Credentials;
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 
 import java.util.Map;
 import java.util.List;
 
-import java.io.UnsupportedEncodingException;
 
-public class HttpBasicAuth implements Authentication {
-    private String username;
-    private String password;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")public class HttpBasicAuth implements Authentication {
+  private String username;
+  private String password;
 
-    public String getUsername() {
-        return username;
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  @Override
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams) {
+    if (username == null && password == null) {
+      return;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams) {
-        if (username == null && password == null) {
-            return;
-        }
-        headerParams.put("Authorization", Credentials.basic(
-            username == null ? "" : username,
-            password == null ? "" : password));
-    }
+    String str = (username == null ? "" : username) + ":" + (password == null ? "" : password);
+    headerParams.put("Authorization", "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
+  }
 }

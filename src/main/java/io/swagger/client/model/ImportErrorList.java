@@ -14,23 +14,20 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.client.model.ImportError;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * ImportErrorList
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class ImportErrorList {
-  @SerializedName("errors")
+  @JsonProperty("errors")
   private List<ImportError> errors = null;
 
   public ImportErrorList errors(List<ImportError> errors) {
@@ -40,7 +37,7 @@ public class ImportErrorList {
 
   public ImportErrorList addErrorsItem(ImportError errorsItem) {
     if (this.errors == null) {
-      this.errors = new ArrayList<ImportError>();
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;

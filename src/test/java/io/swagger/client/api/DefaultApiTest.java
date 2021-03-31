@@ -19,7 +19,7 @@ import io.swagger.client.model.ImportErrorList;
 import io.swagger.client.model.Intermediary;
 import io.swagger.client.model.LoadClientsRequest;
 import io.swagger.client.model.LoadIntermediariesRequest;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import io.swagger.client.model.Product;
 import io.swagger.client.model.ReportResponse;
 import io.swagger.client.model.ReportToken;

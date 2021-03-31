@@ -14,32 +14,29 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
  * ReportResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class ReportResponse {
-  @SerializedName("content_type")
+  @JsonProperty("content_type")
   private String contentType = null;
 
-  @SerializedName("filename")
+  @JsonProperty("filename")
   private String filename = null;
 
-  @SerializedName("content")
+  @JsonProperty("content")
   private byte[] content = null;
 
-  @SerializedName("report_token")
+  @JsonProperty("report_token")
   private String reportToken = null;
 
-  @SerializedName("message")
+  @JsonProperty("message")
   private String message = null;
 
   public ReportResponse contentType(String contentType) {

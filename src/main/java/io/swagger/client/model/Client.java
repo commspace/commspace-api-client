@@ -14,35 +14,32 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.client.model.Product;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * Client
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class Client {
-  @SerializedName("client_id")
+  @JsonProperty("client_id")
   private String clientId = null;
 
-  @SerializedName("last_name")
+  @JsonProperty("last_name")
   private String lastName = null;
 
-  @SerializedName("initials")
+  @JsonProperty("initials")
   private String initials = null;
 
-  @SerializedName("national_registration")
+  @JsonProperty("national_registration")
   private String nationalRegistration = null;
 
-  @SerializedName("products")
+  @JsonProperty("products")
   private List<Product> products = null;
 
   public Client clientId(String clientId) {
@@ -124,7 +121,7 @@ public class Client {
 
   public Client addProductsItem(Product productsItem) {
     if (this.products == null) {
-      this.products = new ArrayList<Product>();
+      this.products = new ArrayList<>();
     }
     this.products.add(productsItem);
     return this;

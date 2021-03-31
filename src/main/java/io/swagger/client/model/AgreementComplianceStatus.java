@@ -14,28 +14,25 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * AgreementComplianceStatus
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class AgreementComplianceStatus {
-  @SerializedName("compliant")
+  @JsonProperty("compliant")
   private Boolean compliant = null;
 
-  @SerializedName("reason")
+  @JsonProperty("reason")
   private String reason = null;
 
-  @SerializedName("reasons")
+  @JsonProperty("reasons")
   private List<String> reasons = null;
 
   public AgreementComplianceStatus compliant(Boolean compliant) {
@@ -81,7 +78,7 @@ public class AgreementComplianceStatus {
 
   public AgreementComplianceStatus addReasonsItem(String reasonsItem) {
     if (this.reasons == null) {
-      this.reasons = new ArrayList<String>();
+      this.reasons = new ArrayList<>();
     }
     this.reasons.add(reasonsItem);
     return this;

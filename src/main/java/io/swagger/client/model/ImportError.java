@@ -14,23 +14,19 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
  * ImportError
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class ImportError {
   /**
    * the type of the entity. One of client, product or intermediary.
    */
-  @JsonAdapter(EntityTypeEnum.Adapter.class)
   public enum EntityTypeEnum {
     CLIENT("client"),
     PRODUCT("product"),
@@ -41,6 +37,7 @@ public class ImportError {
     EntityTypeEnum(String value) {
       this.value = value;
     }
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -49,6 +46,7 @@ public class ImportError {
     public String toString() {
       return String.valueOf(value);
     }
+    @JsonCreator
     public static EntityTypeEnum fromValue(String text) {
       for (EntityTypeEnum b : EntityTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -57,28 +55,17 @@ public class ImportError {
       }
       return null;
     }
-    public static class Adapter extends TypeAdapter<EntityTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EntityTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("entity_type")
+  }  @JsonProperty("entity_type")
   private EntityTypeEnum entityType = null;
 
-  @SerializedName("entity_id")
+  @JsonProperty("entity_id")
   private String entityId = null;
 
-  @SerializedName("title")
+  @JsonProperty("title")
   private String title = null;
 
-  @SerializedName("description")
+  @JsonProperty("description")
   private String description = null;
 
   public ImportError entityType(EntityTypeEnum entityType) {

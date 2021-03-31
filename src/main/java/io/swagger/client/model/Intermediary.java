@@ -14,48 +14,44 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.client.model.ProviderCode;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.LocalDate;
 /**
  * Intermediary
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class Intermediary {
-  @SerializedName("intermediary_id")
+  @JsonProperty("intermediary_id")
   private String intermediaryId = null;
 
-  @SerializedName("name")
+  @JsonProperty("name")
   private String name = null;
 
-  @SerializedName("email")
+  @JsonProperty("email")
   private String email = null;
 
-  @SerializedName("national_registration")
+  @JsonProperty("national_registration")
   private String nationalRegistration = null;
 
-  @SerializedName("start_date")
+  @JsonProperty("start_date")
   private LocalDate startDate = null;
 
-  @SerializedName("end_date")
+  @JsonProperty("end_date")
   private LocalDate endDate = null;
 
-  @SerializedName("payment_end_date")
+  @JsonProperty("payment_end_date")
   private LocalDate paymentEndDate = null;
 
   /**
    * the employment status of the intermediary. If not specified, the \&quot;active\&quot; status will be assumed.
    */
-  @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ACTIVE("active"),
     RETIRED("retired"),
@@ -69,6 +65,7 @@ public class Intermediary {
     StatusEnum(String value) {
       this.value = value;
     }
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -77,6 +74,7 @@ public class Intermediary {
     public String toString() {
       return String.valueOf(value);
     }
+    @JsonCreator
     public static StatusEnum fromValue(String text) {
       for (StatusEnum b : StatusEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -85,28 +83,17 @@ public class Intermediary {
       }
       return null;
     }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("status")
+  }  @JsonProperty("status")
   private StatusEnum status = null;
 
-  @SerializedName("intermediary_code")
+  @JsonProperty("intermediary_code")
   private String intermediaryCode = null;
 
-  @SerializedName("intermediary_group_id")
+  @JsonProperty("intermediary_group_id")
   private String intermediaryGroupId = null;
 
-  @SerializedName("provider_codes")
+  @JsonProperty("provider_codes")
   private List<ProviderCode> providerCodes = null;
 
   public Intermediary intermediaryId(String intermediaryId) {
@@ -296,7 +283,7 @@ public class Intermediary {
 
   public Intermediary addProviderCodesItem(ProviderCode providerCodesItem) {
     if (this.providerCodes == null) {
-      this.providerCodes = new ArrayList<ProviderCode>();
+      this.providerCodes = new ArrayList<>();
     }
     this.providerCodes.add(providerCodesItem);
     return this;

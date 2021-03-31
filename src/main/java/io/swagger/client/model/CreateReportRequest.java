@@ -14,29 +14,25 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.client.model.ReportFilter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * CreateReportRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T07:42:49.936Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-03-31T12:15:05.519Z[GMT]")
 public class CreateReportRequest {
-  @SerializedName("report_id")
+  @JsonProperty("report_id")
   private String reportId = null;
 
   /**
    * specify the format of the report output document
    */
-  @JsonAdapter(FormatEnum.Adapter.class)
   public enum FormatEnum {
     PDF("pdf"),
     XLS("xls"),
@@ -47,6 +43,7 @@ public class CreateReportRequest {
     FormatEnum(String value) {
       this.value = value;
     }
+    @JsonValue
     public String getValue() {
       return value;
     }
@@ -55,6 +52,7 @@ public class CreateReportRequest {
     public String toString() {
       return String.valueOf(value);
     }
+    @JsonCreator
     public static FormatEnum fromValue(String text) {
       for (FormatEnum b : FormatEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -63,31 +61,20 @@ public class CreateReportRequest {
       }
       return null;
     }
-    public static class Adapter extends TypeAdapter<FormatEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FormatEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public FormatEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return FormatEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("format")
+  }  @JsonProperty("format")
   private FormatEnum format = null;
 
-  @SerializedName("callback_url")
+  @JsonProperty("callback_url")
   private String callbackUrl = null;
 
-  @SerializedName("exclude_payload_from_callback")
+  @JsonProperty("exclude_payload_from_callback")
   private Boolean excludePayloadFromCallback = null;
 
-  @SerializedName("compress")
+  @JsonProperty("compress")
   private Boolean compress = null;
 
-  @SerializedName("filters")
+  @JsonProperty("filters")
   private List<ReportFilter> filters = null;
 
   public CreateReportRequest reportId(String reportId) {
@@ -187,7 +174,7 @@ public class CreateReportRequest {
 
   public CreateReportRequest addFiltersItem(ReportFilter filtersItem) {
     if (this.filters == null) {
-      this.filters = new ArrayList<ReportFilter>();
+      this.filters = new ArrayList<>();
     }
     this.filters.add(filtersItem);
     return this;

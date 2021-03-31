@@ -1,8 +1,8 @@
-# commspace-api-client
+# swagger-java-client
 
 Commspace source data API
-- API version: 1.0.2
-  - Build date: 2020-12-08T15:04:17.157Z[GMT]
+- API version: 1.0.4
+  - Build date: 2021-03-31T12:15:05.519Z[GMT]
 
 API for Commspace source data management
 
@@ -38,9 +38,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>za.co.commspace</groupId>
-  <artifactId>commspace-api-client</artifactId>
-  <version>1.0.2</version>
+  <groupId>io.swagger</groupId>
+  <artifactId>swagger-java-client</artifactId>
+  <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "za.co.commspace:commspace-api-client:1.0.2"
+compile "io.swagger:swagger-java-client:1.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/commspace-api-client-1.0.2.jar`
+* `target/swagger-java-client-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -392,7 +392,7 @@ public class DefaultApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/commspace/api/1.0.2*
+All URIs are relative to *https://virtserver.swaggerhub.com/commspace/api/1.0.4*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
