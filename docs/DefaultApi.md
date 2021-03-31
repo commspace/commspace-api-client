@@ -1,6 +1,6 @@
 # DefaultApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/commspace/api/1.0.2*
+All URIs are relative to *https://virtserver.swaggerhub.com/commspace/api/1.0.4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
