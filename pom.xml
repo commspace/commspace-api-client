@@ -4,15 +4,10 @@
   <groupId>za.co.commspace</groupId>
   <artifactId>commspace-api-client</artifactId>
   <packaging>jar</packaging>
-  <name>swagger-java-client</name>
+  <name>commspace-api-client</name>
   <version>1.0.4</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
-  <description>Swagger Java</description>
-  <scm>
-    <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-  </scm>
+  <description>Commspace API Client</description>
   <prerequisites>
     <maven>2.2.0</maven>
   </prerequisites>
@@ -24,15 +19,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <developers>
-    <developer>
-      <name>Swagger</name>
-      <email>apiteam@swagger.io</email>
-      <organization>Swagger</organization>
-      <organizationUrl>http://swagger.io</organizationUrl>
-    </developer>
-  </developers>
 
   <build>
     <plugins>
