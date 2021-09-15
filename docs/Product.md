@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **providerId** | **String** | unique identifier by which the product provider is known by the consumer | 
 **productCategoryId** | **String** | unique identifier by which the product category is known by the consumer | 
 **agreements** | [**List&lt;Agreement&gt;**](Agreement.md) | array of agreements for this product | 
-**inceptionDate** | [**LocalDate**](LocalDate.md) | inception date of the product |  [optional]
-**terminationDate** | [**LocalDate**](LocalDate.md) | termination date of the product |  [optional]
+**inceptionDate** | [**LocalDate**](LocalDate.md) | inception date of the product formatted per RFC3339 |  [optional]
+**terminationDate** | [**LocalDate**](LocalDate.md) | termination date of the product formatted per RFC3339 |  [optional]
 **referenceNumber** | **String** | additional reference number for the product (optional) |  [optional]

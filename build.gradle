@@ -1,8 +1,8 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-group = 'io.swagger'
-version = '1.0.0'
+group = 'za.co.commspace'
+version = '1.1.2'
 
 buildscript {
     repositories {
@@ -82,7 +82,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'swagger-java-client'
+            pom.artifactId = 'commspace-api-client'
         }
     }
 

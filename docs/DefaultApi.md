@@ -1,10 +1,11 @@
 # DefaultApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/commspace/api/1.0.4*
+All URIs are relative to *https://qaapi.commspace.co.za*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**accountsAccountIdReportsReportTokenGet**](DefaultApi.md#accountsAccountIdReportsReportTokenGet) | **GET** /accounts/{account_id}/reports/{report_token} | retrieve report
+[**accountsAccountIdTransactionsPost**](DefaultApi.md#accountsAccountIdTransactionsPost) | **POST** /accounts/{account_id}/transactions | Submit revenue transactions
 [**postAccountClients**](DefaultApi.md#postAccountClients) | **POST** /accounts/{account_id}/clients | create or update clients
 [**postAccountCreateReport**](DefaultApi.md#postAccountCreateReport) | **POST** /accounts/{account_id}/reports | create report
 [**postAccountIntermediaries**](DefaultApi.md#postAccountIntermediaries) | **POST** /accounts/{account_id}/intermediaries | create or update intermediaries
@@ -26,11 +27,11 @@ retrieve a report given a token
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -72,22 +73,78 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="accountsAccountIdTransactionsPost"></a>
+# **accountsAccountIdTransactionsPost**
+> accountsAccountIdTransactionsPost(accountId, body)
+
+Submit revenue transactions
+
+Use this method to submit new revenue transactions to Commspace.  Transactions are grouped into logical batches that are in turn communicated over the wire in pages. Batches are a means of grouping transactions in a way that makes sense from a business perspective e.g. all transactions for a given department for a given day.  Pages are a means of communicating batches in smaller chunks for performance reasons. e.g. break up a batch of 100,000 transactions into 100 pages of 1000 transactions each.  ### Worked example Imagine there are 100,000 transactions to submit on 2020-12-31 for Department A.  A logical batch of these 100,000 transactions can be created with a batch_id of &#x27;A:2020-12-31&#x27; The batch is split into 100 pages of 1000 transactions each. This will result in 100 calls made to the api for each of the 100 pages. 
+
+### Example
+```java
+// Import classes:
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: ApiKeyAuth
+ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+ApiKeyAuth.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.setApiKeyPrefix("Token");
+
+DefaultApi apiInstance = new DefaultApi();
+String accountId = "accountId_example"; // String | unique identifier for account
+Page body = new Page(); // Page | 
+try {
+    apiInstance.accountsAccountIdTransactionsPost(accountId, body);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#accountsAccountIdTransactionsPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **String**| unique identifier for account |
+ **body** | [**Page**](Page.md)|  | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="postAccountClients"></a>
 # **postAccountClients**
 > postAccountClients(accountId, body)
 
 create or update clients
 
-Provides an idempotent way to create or update clients. Supports multiple clients per call.
+Provides an idempotent way to create or update clients i.e. the POST method is used for both create and updates of clients. If the supplied client_id does not exist in the Commspace database a new client record will be created. If it already exists the existing matching client record will be updated. At this stage deletion of client records is not supported Supports multiple clients per call.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -139,11 +196,11 @@ trigger the creation of a report
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -191,16 +248,16 @@ Name | Type | Description  | Notes
 
 create or update intermediaries
 
-Provides an idempotent way to create or update intermediaries. Supports multiple intermediaries per call.
+Provides an idempotent way to create or update intermediaries i.e. the POST method is used for both create and updates of intermediaries. If the supplied intermediary_id does not exist in the Commspace database a new intermediary record will be created. If it already exists the existing matching intermediary record will be updated. At this stage deletion of intermediary records is not supported Supports multiple intermediaries per call.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -252,11 +309,11 @@ Create a temporary SSO token for the supplied user
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -309,11 +366,11 @@ retrieve a client given an identifier
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -366,11 +423,11 @@ retrieve an intermediary given an identifier
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -418,16 +475,16 @@ Name | Type | Description  | Notes
 
 retrieve a report for an intermediary
 
-retrieve a report given intermediary and report identifiers
+retrieve a report given intermediary and report identifiers. This method has been deprecated in favour of the /accounts/{account_id}/reports endpoint.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -492,11 +549,11 @@ retrieve a product with the given product identifiers
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -544,16 +601,16 @@ Name | Type | Description  | Notes
 
 retrieve a report
 
-retrieve a report given report identifiers
+Retrieve a report given report identifiers. This method has been deprecated in favour of the /accounts/{account_id}/reports endpoint.
 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.DefaultApi;
+//import za.co.commspace.ApiClient;
+//import za.co.commspace.ApiException;
+//import za.co.commspace.Configuration;
+//import za.co.commspace.auth.*;
+//import za.co.commspace.api.DefaultApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **name** | **String** | name of intermediary | 
 **email** | **String** | email address of intermediary |  [optional]
 **nationalRegistration** | **String** | ID Number / Passport / other issued registration |  [optional]
-**startDate** | [**LocalDate**](LocalDate.md) | appointment date of the intermediary |  [optional]
-**endDate** | [**LocalDate**](LocalDate.md) | date on which the employment status of the intermediary became inactive. This field is required if status is not active. |  [optional]
-**paymentEndDate** | [**LocalDate**](LocalDate.md) | date on which payment to the intermediary must cease. Defaults to end_date if not supplied. |  [optional]
+**startDate** | [**LocalDate**](LocalDate.md) | appointment date of the intermediary formatted per RFC3339. |  [optional]
+**endDate** | [**LocalDate**](LocalDate.md) | date on which the employment status of the intermediary became inactive formatted per RFC3339. This field is required if status is not active. nullable: true |  [optional]
+**paymentEndDate** | [**LocalDate**](LocalDate.md) | date on which payment to the intermediary must cease formatted per RFC3339. Defaults to end_date if not supplied. |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | the employment status of the intermediary. If not specified, the \&quot;active\&quot; status will be assumed. |  [optional]
 **intermediaryCode** | **String** | business key uniquely identifying intermediary in parent organisation |  [optional]
 **intermediaryGroupId** | **String** | unique identifier of intermediary group that this intermediary belongs to |  [optional]
